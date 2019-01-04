@@ -6,7 +6,7 @@ Start --> Type ID (){ Sentence }
 ''''''''''''''''''''''''''''''''''''
 '句子
 ''''''''''''''''''''''''''''''''''''
-Sentence --> Statement | Assignment  Control | Input | Print | Return
+Sentence --> Statement | Assignment | Control | Input | Print | Return
 
 ''''''''''''''''''''''''''''''''''''
 '声明语句
