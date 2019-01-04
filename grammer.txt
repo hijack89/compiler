@@ -1,0 +1,72 @@
+''''''''''''''''''''''''''''''''''''
+'起始
+''''''''''''''''''''''''''''''''''''
+Start --> Type ID (){ Sentence }
+
+''''''''''''''''''''''''''''''''''''
+'句子
+''''''''''''''''''''''''''''''''''''
+Sentence --> Statement | Assignment  Control | Input | Print | Return
+
+''''''''''''''''''''''''''''''''''''
+'声明语句
+''''''''''''''''''''''''''''''''''''
+Statement --> Type ID Constant ConstantList
+Type --> int
+Constant --> ∑ | [Digit_Constant]
+ConstantList --> ∑ | {Constant OtherConstant}
+OtherConstant --> ∑ | ,Constant OtherConstant
+
+''''''''''''''''''''''''''''''''''''
+'赋值语句
+''''''''''''''''''''''''''''''''''''
+Assignment --> ID Index = Expression
+Index --> ∑ | [Digit_Constant]
+
+''''''''''''''''''''''''''''''''''''
+'控制语句
+''''''''''''''''''''''''''''''''''''
+Control --> IfControl | WhileControl | ForControl
+IfElseControl --> IfControl ElseControl
+IfControl --> if( Expression ){ Sentence }
+ElseControl --> ∑ | else{ Sentence }
+WhileControl --> while( Expression ){ Sentence }
+ForControl --> for( Assignment; Expression; Expression ){ Sentence }
+
+''''''''''''''''''''''''''''''''''''
+'输入语句
+''''''''''''''''''''''''''''''''''''
+Input --> input ID Index OtherID
+Index --> ∑ | [Digit_Constant]
+OtherID --> ∑ | ,ID Index OtherID
+
+''''''''''''''''''''''''''''''''''''
+'输出语句
+''''''''''''''''''''''''''''''''''''
+Print --> print PrintList
+PrintList --> Expression OtherExpression
+OtherExpression --> ∑ | ,Expression OtherExpression
+
+''''''''''''''''''''''''''''''''''''
+'return语句
+''''''''''''''''''''''''''''''''''''
+Return --> return Expresstion;
+
+''''''''''''''''''''''''''''''''''''
+'表达式
+''''''''''''''''''''''''''''''''''''
+Expression --> ( Expression ) | Expression Operator Expression | SingleOperator Expression | ArrayIndex | Constant | Variable
+ArrayIndex --> ID[ Digit_Constant ]
+Constant --> Digit_Constant | String_Constant
+Variable --> ID
+SingleOperator --> ++ | --
+Operate --> + | - | * | / | ++ | -- | > | < | >= | <=
+
+
+
+Digit_Constant --> [0-9] | [1-9][0-9]+    //正则表达式表示
+String_Constant --> [a-zA-Z0-9\n%:,.]+  //正则表达式表示
+ID --> [a-zA-Z_]Digit_Constant*String_Constant*
+
+
+
